@@ -1,0 +1,42 @@
+@use 'libs/variables' as *;
+
+@use 'component/sidebar' as *;
+@use 'page/graph' as *;
+@use 'page/setting' as *;
+
+body {
+  background-color: $cBackGround;
+}
+
+.app {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+}
+
+.sidebar {
+  border-right: 1.5px solid $cBorderLine;
+
+  // サイドバーとメインコンテンツの配分比率を定義（サイドバー：全体の2割）
+  flex: 2;
+}
+
+.main {
+  // サイドバーとメインコンテンツの配分比率を定義（メインコンテンツ：全体の8割）
+  flex: 8;
+
+  // サイドバーのボタンクリックに応じてページを切り替え表示
+  & .content {
+    display: none;
+    &.checked {
+      display: block;
+    }
+  }
+}

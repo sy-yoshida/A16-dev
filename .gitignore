@@ -1,0 +1,8 @@
+# ここに記載したフォルダ・ファイル(xamppの初期ファイル)はgitで管理しない
+dashboard/
+webalizer/
+xampp/
+applications.html
+bitnami.css
+favicon.ico
+index.php

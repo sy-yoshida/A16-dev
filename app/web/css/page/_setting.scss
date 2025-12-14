@@ -1,0 +1,26 @@
+@use '../component/header' as *;
+
+.setting-content {
+  padding-left: 40px;
+
+  & .form-guide {
+    margin: 0px;
+  }
+
+  & .date-form {
+    display: flex;
+    align-items: center;
+    margin-bottom: 7px;
+
+    & input {
+      height: 24px;
+      margin-left: 10px;
+      margin-right: 12px;
+    }
+
+    & select {
+      height: 24px;
+      margin-right: 12px;
+    }
+  }
+}

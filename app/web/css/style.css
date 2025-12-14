@@ -1,0 +1,140 @@
+.sidebar h2 {
+  padding-left: 15px;
+}
+.sidebar .sub-header {
+  padding-left: 35px;
+}
+.sidebar .select-item {
+  display: flex;
+  align-items: center;
+  margin: 0 15px;
+  height: 30px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.sidebar .select-item.checked {
+  background: gainsboro;
+}
+.sidebar .select-item .item-icon {
+  margin: 0 12px;
+  width: 20px;
+  height: 20px;
+}
+.sidebar .select-item p {
+  margin: 0px;
+}
+
+.header {
+  height: 100px;
+  padding-top: 30px;
+  padding-left: 40px;
+}
+.header h2 {
+  margin: 0px;
+}
+.header p {
+  margin: 0px;
+}
+
+.toggle_switch {
+  display: table;
+  font-size: 20px;
+}
+
+.toggle_switch > input {
+  display: none;
+}
+
+.toggle_switch > label {
+  display: block;
+  position: relative;
+  width: 1.8em;
+  height: 1em;
+  border-radius: 1em;
+  background-color: rgba(43, 42, 47, 0.4784313725);
+  cursor: pointer;
+}
+
+.toggle_switch > input:checked + label {
+  background-color: #1cbce3;
+}
+
+.toggle_switch > label::before {
+  position: absolute;
+  top: 0.05em;
+  left: 0.05em;
+  width: 0.9em;
+  height: 0.9em;
+  border-radius: 0.9em;
+  background-color: #fff;
+  transition: 0.5s;
+  content: "";
+}
+
+.toggle_switch > input:checked + label::before {
+  left: calc(100% - 1em + 0.05em);
+}
+
+.graph-content .select-zoom {
+  display: flex;
+  align-items: center;
+  margin: 20px 0px;
+  padding-left: 40px;
+}
+.graph-content .select-zoom p {
+  margin: 0px;
+  padding-left: 15px;
+}
+
+.setting-content {
+  padding-left: 40px;
+}
+.setting-content .form-guide {
+  margin: 0px;
+}
+.setting-content .date-form {
+  display: flex;
+  align-items: center;
+  margin-bottom: 7px;
+}
+.setting-content .date-form input {
+  height: 24px;
+  margin-left: 10px;
+  margin-right: 12px;
+}
+.setting-content .date-form select {
+  height: 24px;
+  margin-right: 12px;
+}
+
+body {
+  background-color: #f6f5f4;
+}
+
+.app {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+}
+
+.sidebar {
+  border-right: 1.5px solid #c0c0c0;
+  flex: 2;
+}
+
+.main {
+  flex: 8;
+}
+.main .content {
+  display: none;
+}
+.main .content.checked {
+  display: block;
+}/*# sourceMappingURL=style.css.map */

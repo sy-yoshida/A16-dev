@@ -1,0 +1,35 @@
+@use '../libs/variables' as *;
+
+.sidebar {
+    & h2 {
+        padding-left: 15px;
+    }
+
+    // 共通部分のデザインを定義
+    & .sub-header {
+        padding-left: 35px;
+    }
+
+    & .select-item {
+        display: flex;
+        align-items: center;
+        margin: 0 15px;
+        height: 30px;
+        border-radius: 6px;
+        cursor: pointer;
+
+        &.checked {
+            background: $cChecked;
+        }
+
+        & .item-icon {
+            margin: 0 12px;
+            width: 20px;
+            height: 20px;
+        }
+
+        & p {
+            margin: 0px;
+        }
+    }
+}

@@ -1,0 +1,17 @@
+@use '../component/header' as *;
+@use '../component/button' as *;
+
+.graph-content {
+  & .select-zoom {
+    display: flex;
+    align-items: center;
+    margin: 20px 0px;
+    padding-left: 40px;
+
+    & p {
+      margin: 0px;
+      padding-left: 15px;
+    }
+  }
+
+}

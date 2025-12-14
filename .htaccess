@@ -1,0 +1,4 @@
+RewriteEngine On
+
+# トップページを /app/web/ にリダイレクト
+RewriteRule ^$ /app/web/ [L,R=302]

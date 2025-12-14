@@ -1,0 +1,10 @@
+RewriteEngine On
+
+# 1. 静的ファイルは除外
+RewriteCond %{REQUEST_URI} \.(css|js|png|jpg|jpeg|gif|svg|ico)$ [NC]
+RewriteRule .* - [L]
+
+# 2. 実在しないファイル・ディレクトリなら index.php に送る
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^.*$ index.php [L]
