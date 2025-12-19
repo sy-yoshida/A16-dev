@@ -17,7 +17,7 @@ class Application
 
     public function run(): void
     {
-        // $this->databaseManager->connectDatabase();
+        $this->databaseManager->connectDatabase();
         // $model = $this->databaseManager->getModel('RecodeModel');
         // $model->search();
 
@@ -40,10 +40,21 @@ class Application
         return $this->view;
     }
 
+    public function getDatabaseManager(): DatabaseManager
+    {
+        return $this->databaseManager;
+    }
+
+    public function getRequest(): Request
+    {
+        return $this->request;
+    }
+
     private function registerRouting(): array
     {
         return [
             '/app/web/' => ['controller' => 'graph', 'action' => 'init'],
+            '/app/web/search' => ['controller' => 'graph', 'action' => 'search'],
         ];
     }
 

@@ -1,0 +1,106 @@
+@use '../component/header' as *;
+@use '../component/button' as *;
+@use '../libs/variables' as *;
+
+.search-content {
+  padding-left: 40px;
+
+  // search-content内の共通デザイン定義
+  & .sub-sentence {
+    color: $cSubText;
+    font-size: 14px;
+  }
+
+  & .search-content-parts {
+    margin-bottom: 30px;
+  }
+
+  // flexクラスがついたdiv要素を横並びで表示する（分割比の設定もここで行う）
+  & .flex {
+    display: flex;
+  }
+
+  .date-search {
+    flex: 2;
+  }
+
+  .machine-search {
+    flex: 3;
+  }
+}
+
+// 「1.日付の指定」のデザイン
+.form-guide {
+  margin: 0px;
+}
+
+.date-form {
+  display: flex;
+  align-items: center;
+  margin-bottom: 7px;
+
+  & input {
+    height: 24px;
+    margin-left: 10px;
+    margin-right: 12px;
+  }
+
+  & select {
+    height: 24px;
+    margin-right: 12px;
+  }
+}
+
+// 「2.検査機の状態」のデザイン
+.machine-form {
+  & .checkbox {
+    width: 200px;
+  }
+
+  input[type="checkbox"] {
+    padding: 0 30px;
+  }
+
+  & .explain {
+    margin: 0px;
+    font-size: 12px;
+    color: $cSubText;
+  }
+}
+
+// 「3.対象製品の選択」のデザイン
+.product-form {
+  & .radio {
+    width: 250px;
+  }
+
+  & .product-select {
+    width: 200px;
+  }
+
+  & .checkbox {
+    width: 90%;
+  }
+
+  & p {
+    margin: 0px;
+  }
+}
+
+.filter-detail {
+  margin-top: 15px;
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition:
+    max-height 0.4s ease,
+    opacity 0.3s ease,
+    transform 0.4s ease;
+
+  &.checked {
+    max-height: 600px;
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

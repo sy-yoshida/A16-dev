@@ -75,6 +75,52 @@
   left: calc(100% - 1em + 0.05em);
 }
 
+.checkbox {
+  display: block;
+  margin: 2px 0;
+  padding-left: 6px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.checkbox span {
+  padding-left: 4px;
+}
+.checkbox:has(input[type=checkbox]:checked) {
+  background-color: gainsboro;
+  accent-color: gray;
+}
+
+.radio {
+  display: block;
+  margin: 2px 0;
+  padding-left: 6px;
+  border-radius: 4px;
+  width: 200px;
+  cursor: pointer;
+}
+.radio:has(input[type=radio]:checked) {
+  accent-color: gray;
+  background: gainsboro;
+}
+.radio span {
+  padding-left: 4px;
+}
+
+.search-btn {
+  display: flex;
+  align-items: center;
+  background: #4FC1FF;
+  color: white;
+  border-radius: 5px;
+  border: 2px solid #1ba9cc;
+  height: 1.8rem;
+  margin-bottom: 50px;
+}
+.search-btn img {
+  padding-right: 5px;
+  height: 14px;
+}
+
 .graph-content .select-zoom {
   display: flex;
   align-items: center;
@@ -86,25 +132,82 @@
   padding-left: 15px;
 }
 
-.setting-content {
+.search-content {
   padding-left: 40px;
 }
-.setting-content .form-guide {
+.search-content .sub-sentence {
+  color: #464646;
+  font-size: 14px;
+}
+.search-content .search-content-parts {
+  margin-bottom: 30px;
+}
+.search-content .flex {
+  display: flex;
+}
+.search-content .date-search {
+  flex: 2;
+}
+.search-content .machine-search {
+  flex: 3;
+}
+
+.form-guide {
   margin: 0px;
 }
-.setting-content .date-form {
+
+.date-form {
   display: flex;
   align-items: center;
   margin-bottom: 7px;
 }
-.setting-content .date-form input {
+.date-form input {
   height: 24px;
   margin-left: 10px;
   margin-right: 12px;
 }
-.setting-content .date-form select {
+.date-form select {
   height: 24px;
   margin-right: 12px;
+}
+
+.machine-form .checkbox {
+  width: 200px;
+}
+.machine-form input[type=checkbox] {
+  padding: 0 30px;
+}
+.machine-form .explain {
+  margin: 0px;
+  font-size: 12px;
+  color: #464646;
+}
+
+.product-form .radio {
+  width: 250px;
+}
+.product-form .product-select {
+  width: 200px;
+}
+.product-form .checkbox {
+  width: 90%;
+}
+.product-form p {
+  margin: 0px;
+}
+
+.filter-detail {
+  margin-top: 15px;
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: max-height 0.4s ease, opacity 0.3s ease, transform 0.4s ease;
+}
+.filter-detail.checked {
+  max-height: 600px;
+  opacity: 1;
+  transform: translateY(0);
 }
 
 body {
@@ -125,12 +228,16 @@ body {
 }
 
 .sidebar {
+  position: sticky;
+  top: 0;
+  height: 100vh;
   border-right: 1.5px solid #c0c0c0;
   flex: 2;
 }
 
 .main {
   flex: 8;
+  padding: 0 50px;
 }
 .main .content {
   display: none;

@@ -5,8 +5,9 @@ require_once __DIR__ . '/core/Autoloader.php';
 
 $autoloader = new Autoloader(__DIR__);
 
-$autoloader->registerDir('/core');
-$autoloader->registerDir('/model');
-$autoloader->registerDir('/controller');
+$autoloader->registerDir('/Core');
+$autoloader->registerDir('/Models');
+$autoloader->registerDir('/Controllers');
+$autoloader->registerDir('/Services');
 
 $autoloader->autoload();

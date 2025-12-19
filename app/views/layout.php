@@ -19,8 +19,8 @@
           <?php echo $graphContent; ?>
         </div>
 
-        <div id="setting-content" class="content checked">
-          <?php echo $settingContent; ?>
+        <div id="search-content" class="content checked">
+          <?php echo $searchContent; ?>
         </div>
 
       </div>

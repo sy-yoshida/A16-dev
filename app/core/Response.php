@@ -17,7 +17,8 @@ class Response
     public static function json($statusCode, $content = ''): Response
     {
         $header = 'Content-Type: application/json';
-        return new self($statusCode, $header, $content);
+        $json = json_encode($content);
+        return new self($statusCode, $header, $json);
     }
 
     public function send(): void

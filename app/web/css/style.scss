@@ -2,7 +2,7 @@
 
 @use 'component/sidebar' as *;
 @use 'page/graph' as *;
-@use 'page/setting' as *;
+@use 'page/search' as *;
 
 body {
   background-color: $cBackGround;
@@ -22,6 +22,9 @@ body {
 }
 
 .sidebar {
+  position: sticky;
+  top: 0;
+  height: 100vh;
   border-right: 1.5px solid $cBorderLine;
 
   // サイドバーとメインコンテンツの配分比率を定義（サイドバー：全体の2割）
@@ -31,6 +34,8 @@ body {
 .main {
   // サイドバーとメインコンテンツの配分比率を定義（メインコンテンツ：全体の8割）
   flex: 8;
+
+  padding: 0 50px;
 
   // サイドバーのボタンクリックに応じてページを切り替え表示
   & .content {
