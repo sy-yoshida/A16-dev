@@ -11,7 +11,6 @@ class GraphController extends Controller
     public function search()
     {
         $searchRequest = Request::getRequestData();
-        var_dump($searchRequest);
         $searchData = $this->service->search($searchRequest);
         return Response::json(200, $searchData);
     }

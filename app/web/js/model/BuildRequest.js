@@ -38,7 +38,7 @@ export class BuildRequest {
         // 対象製品の選択データを配列で取得
         // 「すべて選択(all)」か「条件選択(filter)」かを取得
         requestObj.product = {
-            mode: formData.get('product[choice]')
+            mode: formData.getAll('product[choice]')
         }
 
         // 条件選択の詳細入力情報を取得して配列に格納
@@ -85,5 +85,5 @@ export class BuildRequest {
 
     // 検査条件の製品データを組み立てるメソッド
     // 5~20サイズは口径はA(ミリメートル)指定、150はB(インチ)指定でリクエストを送る
-    
+
 }

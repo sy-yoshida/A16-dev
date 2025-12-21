@@ -6,7 +6,6 @@ export class Fetch {
             headers: { 'Content-Type': 'application/json' },
             body: json
         });
-        const result = await response.json();
-        console.log(result);
+        return await response.json();
     }
 }

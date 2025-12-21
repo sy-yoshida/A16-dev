@@ -47,7 +47,7 @@ export class UIBehaviorManager {
     this.allBtn = document.getElementById('product-all');
     this.filterBtn = document.getElementById('product-filter');
     this.filterEl = document.querySelector('.filter-detail');
-    
+
     this.filterBtn.addEventListener("click", () => {
       this.filterEl.classList.add("checked");
     });

@@ -11,4 +11,7 @@
         </div>
         <p>拡大して表示</p>
     </div>
+
+    <!-- canvas要素を格納するためのdivタグ（canvas要素はJavaScriptで動的生成） -->
+    <div id="chartContainer"></div>
 </div>

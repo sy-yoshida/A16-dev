@@ -68,13 +68,23 @@
 
             <div class="product-form">
 
-                <label for="product-all" class="radio">
-                    <input name="product[choice]" type="radio" id="product-all" value="all">
-                    <span>すべて選択の製品を見る</span>
+                <label for="product-all" class="checkbox">
+                    <input name="product[choice]" type="checkbox" id="product-all" value="all">
+                    <span>すべての製品を見る</span>
                 </label>
 
-                <label for="product-filter" class="radio">
-                    <input name="product[choice]" type="radio" id="product-filter" value="filter">
+                <label for="product-material" class="checkbox">
+                    <input name="product[choice]" type="checkbox" id="product-material" value="material">
+                    <span>材質ごとで見る</span>
+                </label>
+
+                <label for="product-diameter" class="checkbox">
+                    <input name="product[choice]" type="checkbox" id="product-diameter" value="diameter">
+                    <span>口径ごとで見る</span>
+                </label>
+
+                <label for="product-filter" class="checkbox">
+                    <input name="product[choice]" type="checkbox" id="product-filter" value="filter">
                     <span>製品を指定する</span>
                 </label>
 

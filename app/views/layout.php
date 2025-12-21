@@ -26,6 +26,7 @@
       </div>
     </div>
   </div>
+  <script src="js/vendor/chart.js"></script>
   <script type="module" src="js/main.js"></script>
 </body>
 
