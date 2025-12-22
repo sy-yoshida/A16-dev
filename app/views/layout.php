@@ -27,6 +27,8 @@
     </div>
   </div>
   <script src="js/vendor/chart.js"></script>
+  <script src="js/vendor/chartjs-adapter-date-fns.js"></script>
+
   <script type="module" src="js/main.js"></script>
 </body>
 

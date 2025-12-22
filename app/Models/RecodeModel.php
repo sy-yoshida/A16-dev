@@ -53,11 +53,14 @@ class RecodeModel extends DatabaseModel
     public function fetchMeasureData(string $startDate, string $endDate)
     {
         $sql = <<<EOT
-            SELECT timestamp, product, direction, state, bfs_1, sfs_1
+            SELECT
+                `timestamp`, product, direction, state,
+                (COALESCE(bfs_1, 0) + COALESCE(bfs_2, 0)) AS bfs,
+                (COALESCE(sfs_1, 0) + COALESCE(sfs_2, 0)) AS sfs
             FROM `a-16`
-            WHERE state IN ('pass', 'kensa_err_1', 'bfs_err_1', 'sfs_err_1')
-                AND (timestamp BETWEEN :start_date AND :end_date)
-                AND direction = 'one'
+            WHERE state IN ('pass', 'kensa_err_1', 'bfs_err_1', 'sfs_err_1', 'kensa_err_2', 'bfs_err_2', 'sfs_err_2')
+                AND `timestamp` BETWEEN :start_date AND :end_date
+                AND product <> 'tenken'
         EOT;
 
         $params = [

@@ -1,5 +1,6 @@
 import { materialRenderFunc } from '/app/web/js/view/graphRenderFunc/materialRenderFunc.js';
 import { diameterRenderFunc } from '/app/web/js/view/graphRenderFunc/diameterRenderFunc.js';
+import { measureRenderFunc } from '/app/web/js/view/graphRenderFunc/measureRenderFunc.js';
 
 export class GraphRenderer {
 
@@ -20,7 +21,8 @@ export class GraphRenderer {
 
     const renderMap = {
       material: materialRenderFunc,
-      diameter: diameterRenderFunc
+      diameter: diameterRenderFunc,
+      measure: measureRenderFunc,
     };
 
     renderMap[graphData.mode]?.(canvas, graphData);

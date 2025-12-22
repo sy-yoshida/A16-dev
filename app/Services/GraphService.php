@@ -12,13 +12,16 @@ class GraphService extends Service
 
     public function search(array $searchRequest)
     {
-        $startDate = $this->convertTime($searchRequest['startDate']);
-        $endDate = $this->convertTime($searchRequest['endDate']);
+        $startDate = $this->convertDatabaseTime($searchRequest['startDate']);
+        $endDate = $this->convertDatabaseTime($searchRequest['endDate']);
         $modes = $searchRequest['product']['mode'];
         $responseData = [];
 
         $measureData = $this->recodeModel->fetchMeasureData($startDate, $endDate);
-        $responseData['measure'] = $this->measureDataSort($measureData);
+        $responseData['measure'] = [
+            'metadata' => ['startDate' => $startDate, 'endDate' => $endDate],
+            'body' => $this->measureDataSort($measureData)
+        ];
 
         foreach ($modes as $mode) {
             if ($mode === 'all') {
@@ -64,15 +67,14 @@ class GraphService extends Service
     }
 
     // 測定値データの整理を行う関数
-    private function measureDataSort($measureData)
+    private function measureDataSort(array $measureData)
     {
-        $responseData = [];
         foreach ($measureData as $value) {
             $responseData[] = [
                 'direction' => $value['direction'],
-                'label' => $value['timestamp'],
-                'bfs_1' => $value['bfs_1'],
-                'sfs_1' => $value['sfs_1'],
+                'label' => $this->convertIso8601Time($value['timestamp']),
+                'bfs' => $value['bfs'],
+                'sfs' => $value['sfs'],
             ];
         }
 
@@ -80,10 +82,17 @@ class GraphService extends Service
     }
 
     // ISO8601の日付データをデータベースに登録の日付型に変換する関数
-    private function convertTime(string $iso8601,  string $format = 'Y-m-d H:i'): string
+    private function convertDatabaseTime(string $iso8601,  string $format = 'Y-m-d H:i'): string
     {
         $date = new DateTime($iso8601);
         return $date->format($format);
+    }
+
+    // データベースに登録の日付型からISO8601日付型へ変換する関数
+    private function convertIso8601Time(string $databaseDate)
+    {
+        $date = new DateTime($databaseDate, new DateTimeZone('Asia/Tokyo'));
+        return $date->format(DateTime::ATOM);
     }
 
     // 製品情報のDB検索結果から良品率を算出して返す関数

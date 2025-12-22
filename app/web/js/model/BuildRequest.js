@@ -66,8 +66,6 @@ export class BuildRequest {
 
             requestObj.product.filter = productFiltersObj;
         }
-
-        console.log(requestObj);
         return requestObj;
     }
 

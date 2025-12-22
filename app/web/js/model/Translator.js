@@ -2,12 +2,11 @@ export class Translator {
   // サーバからのデータをグラフ化に適した形式に変換
   static translateToGraphRender(responseObjs) {
     const graphDataList = [];
+    console.log(responseObjs);
 
     const measureDataList = ['measure'];
     const passDataList = ['material', 'diameter'];
-
     Object.entries(responseObjs).forEach(([mode, data]) => {
-      console.log(mode);
       if (passDataList.includes(mode)) {
         graphDataList.push(this.#passTranslate(mode, data));
       }
@@ -18,7 +17,6 @@ export class Translator {
 
       // graphDataList.push(graphDataObj);
     });
-    console.log(graphDataList);
     return graphDataList;
   }
 
@@ -26,19 +24,18 @@ export class Translator {
   static #measureTranslate(mode, data) {
     const graphDataObj = {
       mode: mode,
-      direction: 'one',
+      startDate: data.metadata.startDate,
+      endDate: data.metadata.endDate,
       labels: [],
-      bfs_1: [],
-      sfs_1: [],
+      bfs: [],
+      sfs: [],
     }
-    console.log(data);
 
-    data.forEach(value => {
+    data.body.forEach(value => {
       graphDataObj.labels.push(value.label);
-      graphDataObj.bfs_1.push(value.bfs_1);
-      graphDataObj.sfs_1.push(value.sfs_1);
+      graphDataObj.bfs.push(value.bfs);
+      graphDataObj.sfs.push(value.sfs);
     });
-    console.log(graphDataObj);
     return graphDataObj;
   }
 
@@ -56,7 +53,6 @@ export class Translator {
       graphDataObj.productionCounts.push(value.production_count);
       graphDataObj.passRates.push(value.pass_rate);
     });
-    console.log(graphDataObj);
     return graphDataObj;
   }
 }
